@@ -26,15 +26,35 @@ public class UserList {
     }
 
 
-    //TODO: implements this method to change user's password to newPassword by verified oldPassword
-    //TODO: return true if process is completed, otherwise return false
     public boolean changePassword(String username, String oldPassword, String newPassword) {
-        return false;
+        User u = findUserByUsername(username);
+        if (u == null){
+            return false;
+        }
+        else {
+
+            if (oldPassword.equals(newPassword)) {
+                return false;
+            } else {
+                u.setPassword(newPassword);
+                return true;
+            }
+        }
     }
 
-    //TODO: implements this method to find user in users with valid password
-    //TODO: return User object if username and password is correct, otherwise return null
+
     public User login(String username, String password) {
-        return null;
+        User u = findUserByUsername(username);
+        if (u == null){
+            return null;
+        }
+        else{
+            if (u.validatePassword(password)){
+                return u;
+            }
+            else {
+                return null;
+            }
+        }
     }
 }

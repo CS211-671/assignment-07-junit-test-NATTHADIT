@@ -33,7 +33,7 @@ class StudentTest {
 
 
     @Test
-    @DisplayName("ทดสอบการตรวจสอบID")
+    @DisplayName("ทดสอบการตรวจสอบId")
     void testId(){
         Student s = new Student("6610450161", "Stamp");
         assertTrue(s.isId("6610450161"));
